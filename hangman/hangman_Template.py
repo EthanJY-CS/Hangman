@@ -45,6 +45,7 @@ class Hangman:
         # TODO 2: Print two message upon initialization:
         # 1. "The mistery word has {num_letters} characters"
         # 2. {word_guessed}
+
         pass
 
     def check_letter(self, letter) -> None:
@@ -78,6 +79,20 @@ class Hangman:
         # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
         # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
         # TODO 3: If the letter is valid, call the check_letter method
+        while True:
+            letter = input("Enter a letter to guess!").lower()
+            lengthOfGuess = len(letter)
+            if lengthOfGuess > 1:
+                print("Please, enter just one character")
+                continue
+            asciiChar = ord(letter)
+            if (asciiChar >= 97 and asciiChar <= 122):
+                break
+            if not letter in list_letters:
+                break
+            else:
+                print("{letter} was already tried")
+        check_letter(self, letter)
         pass
 
 def play_game(word_list):
