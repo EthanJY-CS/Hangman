@@ -45,7 +45,14 @@ class Hangman:
         # TODO 2: Print two message upon initialization:
         # 1. "The mistery word has {num_letters} characters"
         # 2. {word_guessed}
-
+        word = word_list[random.randint(0, len(word_list))]
+        word_guessed = ['_'] * len(word)
+        num_letters = len(word)
+        self.num_lives = num_lives
+        list_letters = []
+        print("The mistery word has {num_letters} characters")
+        print("{word_guessed}")
+        
         pass
 
     def check_letter(self, letter) -> None:
