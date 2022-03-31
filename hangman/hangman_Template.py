@@ -50,8 +50,8 @@ class Hangman:
         num_letters = len(word)
         self.num_lives = num_lives
         list_letters = []
-        print("The mistery word has {num_letters} characters")
-        print("{word_guessed}")
+        print("The mistery word has {} characters".format(num_letters))
+        print("{}".format(word_guessed))
         
         pass
 
@@ -72,6 +72,15 @@ class Hangman:
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
+
+        if letter in word:
+            idx = [i for i, char in enumerate(word) if char == letter]
+            for index in idx:
+                word_guessed[index] = letter
+            num_letters -= 1
+        else:
+            num_lives -= 1
+
         pass
 
     def ask_letter(self):
