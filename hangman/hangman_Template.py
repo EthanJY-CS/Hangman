@@ -100,19 +100,19 @@ class Hangman:
         # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
         # TODO 3: If the letter is valid, call the check_letter method
         while True:
-            letter = input("Enter a letter to guess!\n").lower()
+            letter = input("Enter a letter to guess: ").lower()
             lengthOfGuess = len(letter)
             if lengthOfGuess > 1:
                 print("Please, enter just one character")
                 continue
             asciiChar = ord(letter)
+            if not(asciiChar >= 97 and asciiChar <= 122):
+                continue
             if not letter in self.list_letters:
                 break
             else:
                 print("{} was already tried".format(letter))
                 continue
-            if (asciiChar >= 97 and asciiChar <= 122):
-                break
         self.check_letter(letter)
 
         pass
@@ -127,15 +127,54 @@ def play_game(word_list):
     # TODO 4: Iteratively ask the user for a letter until the user guesses the word or runs out of lives
     # If the user guesses the word, print "Congratulations! You won!"
     # If the user runs out of lives, print "You lost! The word was {word}"
+    visuals = ['   ____ \n' +
+               '      | \n' +
+               '      | \n' +
+               '      | \n' +
+               '      | \n' +
+               '     _|_\n', 
+               '   ____ \n' +
+               '  |   | \n' +
+               '      | \n' +
+               '      | \n' +
+               '      | \n' +
+               '     _|_\n',
+               '   ____ \n' +
+               '  |   | \n' +
+               '  O   | \n' +
+               '      | \n' +
+               '      | \n' +
+               '     _|_\n',
+               '   ____ \n' +
+               '  |   | \n' +
+               '  O   | \n' +
+               ' \|/  | \n' +
+               '      | \n' +
+               '     _|_\n',
+               '   ____ \n' +
+               '  |   | \n' +
+               '  O   | \n' +
+               ' \|/  | \n' +
+               '  |   | \n' +
+               '     _|_\n',
+               '   ____ \n' +
+               '  |   | \n' +
+               '  O   | \n' +
+               ' \|/  | \n' +
+               '  |   | \n' +
+               ' / \ _|_\n',]
+    
     while True:
+        print(visuals[5 - game.num_lives])
         game.ask_letter()
         if game.num_lives == 0:
+            print(visuals[5 - game.num_lives])
             print('You lost! The word was {}'.format(game.word))
             break
         if not '_' in game.word_guessed:
             print('Congratulations! You won!')
             break
-
+    
     pass
 
 if __name__ == '__main__':
