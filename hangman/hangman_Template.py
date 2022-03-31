@@ -77,10 +77,14 @@ class Hangman:
             idx = [i for i, char in enumerate(word) if char == letter]
             for index in idx:
                 word_guessed[index] = letter
+            print('Nice! {} is in the word!'.format(letter))
+            print(word_guessed)
             num_letters -= 1
         else:
             num_lives -= 1
-
+            list_letters.append(letter)
+            print('Sorry, {} is not in the word.'.format(letter))
+            print('You have {} lives left.'.format(num_lives))
         pass
 
     def ask_letter(self):
