@@ -2,6 +2,9 @@
 
 > Classic game of hangman, where a few select fruits are given as the words to guess for the user. The user has 5 lives before the man is hanged, don't let him die!
 
+> UML Diagram of Hangman Design
+> ![image](https://user-images.githubusercontent.com/78024243/161451078-24a943ea-1035-459e-9697-ffe96a7fc810.png)
+
 ## Milestone 1: Ask the user for input - ask_letter() func
 
 So what's the first thing we need, a letter from the user. Sounds pretty simple but even then, we need to assume the user is a dystopian monkey and can break a simple hangman game, and this is where we use error handling. Okay so there's no real error handling code used but what we do is handle their input and check/validate the data making it so our game can still continue.
